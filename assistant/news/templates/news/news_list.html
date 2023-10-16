@@ -1,0 +1,16 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+  <h2>News List</h2>
+  
+  <ul>
+    {% for item in news %}
+      <li>
+        <strong><a href="{{ item.url }}" target="_blank">{{ item.title }}</a></strong>
+        <p>{{ item.description }}</p>
+        <small>Published at: {{ item.published_at|date:"F d, Y" }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

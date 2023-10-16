@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Contact</title>
+</head>
+<body>
+    <h1>Edit Contact</h1>
+    <form method="post">
+        {% csrf_token %}
+        Name: <input type="text" name="name" value="{{ contact.name }}"><br>
+        Address: <input type="text" name="address" value="{{ contact.address }}"><br>
+        Phone: <input type="text" name="phone" value="{{ contact.phone }}"><br>
+        Email: <input type="email" name="email" value="{{ contact.email }}"><br>
+        Birthdate: <input type="date" name="birthdate" value="{{ contact.birthdate }}"><br>
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>

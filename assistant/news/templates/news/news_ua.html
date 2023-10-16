@@ -1,0 +1,27 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+<h2>Новини</h2>
+<table table-layout: fixed;>
+    <tr>
+    <td width:100%;><a name="main" href="{% url 'news:news_ua'%}">Головні новини дня</a></td>
+    <td width:100%;><a name="war" href="{% url 'news:war'%}">Війна</a></td>
+    <td width:100%;><a name="world" href="{% url 'news:world'%}">Світові новини</a></td>
+    <td width:100%;><a name ="society" href="{% url 'news:society'%}">Новини України</a></td>
+    <td width:100%;><a name="economis" href="{% url 'news:economics'%}">Економіка</a></td>
+    <td width:100%;><a name=" science" href="{% url 'news:science'%}">Наука</a></td>
+    <td width:100%;><a name="sport" href="{% url 'news:sport'%}">Спорт</a></td>
+    </tr>
+</table>
+<ul>
+    {% for item in news %}
+    <li>
+        <!-- href="{% url 'news:news_ua'%}" -->
+        <strong><a href="{{ item.url }}" target="_blank">{{ item.title }}</a></strong>
+        <p>{{ item.content }}</p>
+        <small>Published at: {{ item.date}}</small>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

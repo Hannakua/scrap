@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+</head>
+<body>
+    <h1>Contact List</h1>
+
+    <!-- Форма пошуку контактів -->
+    <form method="GET" action="search">
+        <input type="text" name="search_query" placeholder="Пошук за ім'ям або email">
+        <button type="submit">Пошук</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>Ім'я</th>
+            <th>Адреса</th>
+            <th>Телефон</th>
+            <th>Email</th>
+            <th>Дата народження</th>
+            <th>Дії</th>
+        </tr>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.address }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.birthdate }}</td>
+            <td>
+                <a href="../contacts/edit/{{ contact.id }}">Редагувати</a> |
+                <a href="../contacts/delete/{{ contact.id }}">Видалити</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Посилання на інші сторінки -->
+    <p><a href="add">Додати новий контакт</a></p>
+    <p><a href="upcoming_birthdays">Майбутні дні народження</a></p>
+</body>
+</html>
